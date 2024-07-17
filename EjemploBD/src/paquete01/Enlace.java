@@ -47,6 +47,7 @@ public class Enlace {
         try{  
             establecerConexion();
             Statement statement = obtenerConexion().createStatement();
+            // CIUDAD ES EL NOMBRE DE LA TABLA QUE ESTA CREADA EN LA BASE DATOS 
             String data = String.format("INSERT INTO Ciudad (nombre, poblacion) "
                     + "values ('%s', %d)", ciudad.obtenerNombre(), 
                     ciudad.obtenerPoblacion());
@@ -67,6 +68,8 @@ public class Enlace {
             String data = "Select * from Ciudad;";
             
             ResultSet rs = statement.executeQuery(data);
+            /*rs.getString(porque es de tipo Cadena en el squ)("nombre"),rs.getInt(PORQUE ES EDE TIPO ENTERO
+            )("poblacion"));*/
             while(rs.next()){
                 Ciudad miCiudad = new Ciudad(rs.getString("nombre"),
                 rs.getInt("poblacion"));
